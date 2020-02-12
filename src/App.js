@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Buscador from './componentes/Buscador'
 
 class App extends Component{
 
 state={
-  producto : 'test' 
+  producto : '' 
 };
 
 busqueda = (producto) => {
