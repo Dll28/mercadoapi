@@ -3,7 +3,8 @@ import React,{Component, createContext} from 'react';
 class Buscador extends Component{
     ref= React.createRef();
         buscarProductos=(e) =>{           
-            console.log(this.ref.current.value);
+            const producto = this.ref.current.value;
+            this.props.busqueda(producto);
         }
     render(){
         return(
