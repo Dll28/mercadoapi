@@ -8,9 +8,9 @@ const producto=(props) =>{
             <div className="card">
                 <img src={thumbnail} className="card-img-top" />
                 <div className="card-body">
-                    <p className="card-text">{title+"  "+price}
-
-                    </p>
+                    <p className="card-text">{title}</p>
+                    <p className="card-text">{price+" COP"}</p>
+                    <p className="card-text">{seller.id+" Id vendedor"}</p>
                 </div>
 
                 

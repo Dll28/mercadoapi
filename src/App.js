@@ -40,7 +40,7 @@ render(){
       <Resultado 
       imagenes={this.state.imagenes}
       />
-      
+
     </div>
   );
   }
