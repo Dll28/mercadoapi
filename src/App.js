@@ -1,15 +1,30 @@
 import React, {Component} from 'react';
-import Buscador from './componentes/Buscador'
+import Buscador from './componentes/Buscador';
+import Resultado from './componentes/Resultado';
 
 class App extends Component{
 
 state={
-  producto : '' 
-};
+  producto : '',
+  imagenes : []
+  
+}
+
+consultarApi = () => {
+  const prod=this.state.producto;
+  const url = `https://api.mercadolibre.com/sites/MCO/search?q=${prod}`;
+  
+  //console.log(url);
+
+  fetch(url).then(respuesta => respuesta.json())
+  .then(resultado => this.setState({imagenes : resultado.results}))
+}
 
 busqueda = (producto) => {
   this.setState({
     producto
+  },() => {
+    this.consultarApi();
   })
 }
 render(){
@@ -21,7 +36,11 @@ render(){
               busqueda={this.busqueda}
       />
       </div>
-      {this.state.producto}
+      
+      <Resultado 
+      imagenes={this.state.imagenes}
+      />
+      
     </div>
   );
   }

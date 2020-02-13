@@ -1,8 +1,9 @@
-import React,{Component, createContext} from 'react';
+import React,{Component} from 'react';
 
 class Buscador extends Component{
     ref= React.createRef();
-        buscarProductos=(e) =>{           
+        buscarProductos=(e) =>{  
+            e.preventDefault();         
             const producto = this.ref.current.value;
             this.props.busqueda(producto);
         }
