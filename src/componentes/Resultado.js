@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Producto from './Producto';
+import Paginacion from './Paginacion';
 
 class Resultado extends Component{
 mostrarProductos=() =>{
@@ -16,6 +17,10 @@ mostrarProductos=() =>{
                     />
                 ))}
             </div>
+            <Paginacion
+                  pagAnterior={this.props.pagAnterior}
+                  pagSiguiente={this.props.pagSiguiente}        
+                />
         </React.Fragment>
     )
 

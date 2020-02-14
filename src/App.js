@@ -6,13 +6,40 @@ class App extends Component{
 
 state={
   producto : '',
-  imagenes : []
+  imagenes : [],
+  pag: ''
   
+}
+
+pagAnterior =() => {
+  let pag= this.state.pag;
+  if(pag===1)  return null;
+  
+  pag-=1;
+  this.setState({
+    pag}, () =>{
+      this.consultarApi();
+    }
+    );
+    
+}
+pagSiguiente = () => {
+  let pag= this.state.pag;
+  pag+=1;
+  this.setState({
+    pag} , () =>{
+      this.consultarApi();
+    }
+    );
+  
+
 }
 
 consultarApi = () => {
   const prod=this.state.producto;
-  const url = `https://api.mercadolibre.com/sites/MCO/search?q=${prod}`;
+  const pag=this.state.pag;
+  var offset=pag*50;
+  const url = `https://api.mercadolibre.com/sites/MCO/search?q=${prod}&offset=${offset}`;
   
   //console.log(url);
 
@@ -22,7 +49,8 @@ consultarApi = () => {
 
 busqueda = (producto) => {
   this.setState({
-    producto
+    producto : producto,
+    pag : 1
   },() => {
     this.consultarApi();
   })
@@ -37,9 +65,13 @@ render(){
       />
       </div>
       
-      <Resultado 
-      imagenes={this.state.imagenes}
-      />
+      <div className="row justify-content-center">
+        <Resultado 
+          imagenes={this.state.imagenes}
+          pagAnterior={this.pagAnterior}
+          pagSiguiente={this.pagSiguiente}
+        />
+      </div>
 
     </div>
   );
