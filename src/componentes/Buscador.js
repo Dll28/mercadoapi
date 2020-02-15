@@ -10,6 +10,7 @@ class Buscador extends Component{
     render(){
         return(
             <form onSubmit={this.buscarProductos}>
+                
                 <div className="row">
                     <div className="form-group col-md-8">
                     <input ref={ this.ref} type="text" size="50" className="form-control form-control-lg" placeholder="Ingresa el producto que deseas buscar"/>

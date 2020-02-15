@@ -40,6 +40,7 @@ consultarApi = () => {
   const pag=this.state.pag;
   var offset=pag*50;
   const url = `https://api.mercadolibre.com/sites/MCO/search?q=${prod}&offset=${offset}`;
+  const urlprice= `https://api.mercadolibre.com/sites/MCO/search?q=${prod}&offset=${offset}&sort=price_asc`
   
   //console.log(url);
 
