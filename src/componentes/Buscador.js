@@ -9,7 +9,7 @@ class Buscador extends Component{
         }
     render(){
         return(
-            <form onSubmit={this.buscarProductos}>
+            <form  onSubmit={this.buscarProductos}>
                 
                 <div className="row">
                     <div className="form-group col-md-8">
@@ -19,6 +19,7 @@ class Buscador extends Component{
                     <input type="submit" className="btn btn-lg btn-danger btn-block" value="Buscar"/>
                 </div>
                 </div>
+               
             </form>
         );
     }
