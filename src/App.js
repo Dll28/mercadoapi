@@ -50,7 +50,7 @@ consultarApi = () => {
 busqueda = (producto) => {
   this.setState({
     producto : producto,
-    pag : 1
+    pag : 0
   },() => {
     this.consultarApi();
   })
@@ -59,7 +59,7 @@ render(){
   return (
     <div className="container">
       <div className="jumbotron">
-        <h1 className="lead text-center" >Mercado David</h1>
+        <h1 className="lead text-center">Mercado David</h1>
             <Buscador 
               busqueda={this.busqueda}
       />
